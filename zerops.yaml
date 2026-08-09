@@ -13,7 +13,10 @@ zerops:
       start: npm run start
       envSecrets:
         GREETING_NAME: DeployDoctor
-        # DATABASE_URL must be set via Zerops UI; do NOT commit the value here
+      env:
+        # Deliberately wrong: a hardcoded private hostname instead of the
+        # db service's real resolved value — /db-ping fails to resolve it.
+        DATABASE_URL: postgresql://postgres:postgres@db-primary-internal:5432/patient
   - setup: db
     run:
       base: postgresql@16
