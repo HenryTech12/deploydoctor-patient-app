@@ -23,7 +23,7 @@ app.get("/db-ping", async (req, res) => {
 // Reads a required env var — used by breakable variant 4 (runtime/code error).
 // In the healthy baseline, GREETING_NAME is always set via zerops.yaml.
 app.get("/greet", (req, res) => {
-  const name = process.env.GREETING_NAME.trim();
+  const name = (process.env.GREETING_NAME || "World").trim();
   res.json({ message: `Hello, ${name}!` });
 });
 
