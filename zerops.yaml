@@ -11,9 +11,7 @@ zerops:
         - port: 3000
           httpSupport: true
       start: npm run start
-      envSecrets:
-        GREETING_NAME: DeployDoctor
-        # DATABASE_URL must be set via Zerops UI; do NOT commit the value here
+      # DATABASE_URL must be set via Zerops UI; do NOT commit the value here
   - setup: db
     run:
       base: postgresql@16
